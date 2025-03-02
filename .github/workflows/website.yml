@@ -67,7 +67,7 @@ jobs:
         working-directory: ./src/
         run: |
           # rm README.md
-          echo "# Nothing\\n\\nsee ./public_docs/" > README.md
+          echo $'# /\n\nThere are nothing, you should see ./public_docs/' > README.md
           
           # 文档的克隆、构建、部署。注意 `clone --depth 1` 只拉最近一次提交，减少时间
           # git clone --depth 1 https://github.com/${GITHUB_REPOSITORY}.git # 如果有多个clone项则替换成这个，避免冲突
@@ -75,9 +75,9 @@ jobs:
           git clone --depth 1 -b tmp https://github.com/${GITHUB_REPOSITORY}.git .vuepress/public/docs/ # [!code] 注意分支
           pwd
           echo "----- ls1 -----"
-          ls -a
+          ls -la
           echo "----- ls2 -----"
-          ls -a ./.vuepress/public/docs/
+          ls -la ./.vuepress/public/docs/
 
       # [!code] 根据实际情况修改 (需要在仓库配置写入以及和文档仓库clone这两个步骤的后面)
       - name: 配置 - 设置
