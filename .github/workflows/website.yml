@@ -72,12 +72,12 @@ jobs:
           # 文档的克隆、构建、部署。注意 `clone --depth 1` 只拉最近一次提交，减少时间
           # git clone --depth 1 https://github.com/${GITHUB_REPOSITORY}.git # 如果有多个clone项则替换成这个，避免冲突
           mkdir -p ./.vuepress/public/docs/
-          git clone --depth 1 -b tmp https://github.com/${GITHUB_REPOSITORY}.git ./.vuepress/public/docs/ # [!code] 注意分支
+          git clone --depth 1 -b tmp https://github.com/${GITHUB_REPOSITORY}.git .vuepress/public/docs/ # [!code] 注意分支
           pwd
           echo "----- ls1 -----"
-          ls
+          ls -a
           echo "----- ls2 -----"
-          ls ./.vuepress/public/docs/
+          ls -a ./.vuepress/public/docs/
 
       # [!code] 根据实际情况修改 (需要在仓库配置写入以及和文档仓库clone这两个步骤的后面)
       - name: 配置 - 设置
